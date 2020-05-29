@@ -23,6 +23,12 @@ public class Employees {
     @Column(name = "EMPLOYEE_PHONE", columnDefinition = "VARCHAR(120)")
     private long employee_phone;
 
+    @Column(name = "JOB_POSITION", columnDefinition = "VARCHAR(120)")
+    private long job_position;
+
+    @Column(name = "SALARY", columnDefinition = "VARCHAR(120)")
+    private long salary;
+
 
 
 }
