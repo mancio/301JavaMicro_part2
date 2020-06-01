@@ -25,7 +25,7 @@ public class MainController {
     }
 
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Optional<Employees>> getEmployeeById(@PathVariable(value = "id") Long employeeId) throws CustomNotFound {
+    public ResponseEntity<Optional<Employees>> getEmployeeById(@PathVariable(value = "id") Long employeeId) {
         Optional<Employees> empl = empdao.findById(employeeId);
         if(!empl.isPresent()){
             throw new CustomNotFound(employeeId);
