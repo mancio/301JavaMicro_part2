@@ -56,7 +56,7 @@ public class Employees {
         this.employee_last_name = employee_last_name;
     }
 
-    public String getEmployee_address() {
+    public String getEmployee_address(String s) {
         return employee_address;
     }
 

@@ -74,6 +74,12 @@ Submit a zip file which consists of following documents:
 *	Screen capture of code coverage 
 *	Screen capture of unit testing
 
+### H2 console
+To access the H2 console run the app and
+use this [http://localhost:8080/h2-console](link)
+
+### Screenshot folder
+
 
 
 
