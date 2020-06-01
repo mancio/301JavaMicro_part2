@@ -1,5 +1,6 @@
 package com.mancio.JavaMicro.controller;
 
+import com.mancio.JavaMicro.CustomExceptions.CustomNotFound;
 import com.mancio.JavaMicro.dao.EmployeeDAO;
 import com.mancio.JavaMicro.entities.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,16 @@ public class MainController {
     }
 
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Optional<Employees>> getEmployeeById(@PathVariable(value = "id") Long employeeId) {
+    public ResponseEntity<Optional<Employees>> getEmployeeById(@PathVariable(value = "id") Long employeeId) throws CustomNotFound {
         Optional<Employees> empl = empdao.findById(employeeId);
+        if(!empl.isPresent()){
+            throw new CustomNotFound(employeeId);
+        }
+        else return ResponseEntity.ok().body(empl);
 
-        return ResponseEntity.ok().body(empl);
+
+
+
 
     }
 
@@ -38,7 +45,12 @@ public class MainController {
 
     @DeleteMapping("/employees/{id}")
     public Map< String, Boolean > deleteEmployee(@PathVariable(value = "id") Long employeeId) {
-        empdao.deleteById(employeeId);
+        try{
+            empdao.deleteById(employeeId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new CustomNotFound(employeeId);
+        }
         Map < String, Boolean > response = new HashMap< >();
         response.put("deleted", Boolean.TRUE);
         return response;

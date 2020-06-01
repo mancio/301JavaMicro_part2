@@ -1,7 +1,7 @@
 package com.mancio.JavaMicro;
 
 import com.mancio.JavaMicro.entities.Employees;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,10 +16,10 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ApplicationTests {
+public class ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 	@Autowired
@@ -32,8 +32,13 @@ class ApplicationTests {
 		return "http://localhost:" + port;
 	}
 
+	private String getWrongPath() {
+		// employees is misspelled;
+		return getUrl() + "/empploys/0";
+	}
+
 	@Test
-	public void TestGetAllEmpl(){
+	public void TestGetAllEmpl() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 		ResponseEntity<String> response = restTemplate.exchange(getUrl() + "/employees",
@@ -42,7 +47,7 @@ class ApplicationTests {
 	}
 
 	@Test
-	public void testGetEmpById(){
+	public void testGetEmpById() {
 		Employees employee = restTemplate.getForObject(getUrl() + "/employees/0", Employees.class);
 		System.out.println(employee.getEmployee_name());
 		assertNotNull(employee);
@@ -76,4 +81,14 @@ class ApplicationTests {
 		}
 	}
 
+	@Test
+	public void testWrongUrl() {
+		try {
+			restTemplate.getForObject(getWrongPath(), Employees.class);
+		} catch (final HttpClientErrorException e) {
+			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
+		}
+	}
 }
+
+

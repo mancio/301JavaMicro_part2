@@ -4,5 +4,5 @@ import com.mancio.JavaMicro.entities.Employees;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EmployeeDAO extends CrudRepository<Employees,Long>{
-    //Employees findByEmployee_id(String id);
+
 }
