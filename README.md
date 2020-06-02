@@ -76,9 +76,15 @@ Submit a zip file which consists of following documents:
 
 ### H2 console
 To access the H2 console run the app and
-use this [http://localhost:8080/h2-console](link)
+use this [link](http://localhost:8080/h2-console)
 
 ### Screenshot folder
+[Here](https://github.com/mancio/301JavaMicro/tree/master/screenshots)
+the postman screenshots and tests
+
+### SQL
+[Here](https://github.com/mancio/301JavaMicro/blob/master/src/main/resources/data.sql)
+the sql queries executed on springboot start
 
 
 
