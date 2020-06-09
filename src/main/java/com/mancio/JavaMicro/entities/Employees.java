@@ -10,6 +10,9 @@ public class Employees {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "EMPLOYEE_ID", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long employee_id;
+    /*
+    @Column(name = "EMPLOYEE_MAIL", nullable = false, columnDefinition = "VARCHAR(120)")
+    private long employee_mail;*/
 
     @Column(name = "EMPLOYEE_NAME", columnDefinition = "VARCHAR(120)")
     private String employee_name;
