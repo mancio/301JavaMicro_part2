@@ -1,6 +1,6 @@
 package com.mancio.JavaMicro.controller;
 
-import com.mancio.JavaMicro.CustomExceptions.CustomNotFound;
+import com.mancio.JavaMicro.customExceptions.CustomNotFound;
 import com.mancio.JavaMicro.dao.EmployeeDAO;
 import com.mancio.JavaMicro.entities.Employees;
 import org.springframework.beans.factory.annotation.Autowired;

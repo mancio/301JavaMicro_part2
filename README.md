@@ -21,9 +21,10 @@ to execute container in local type ```docker run -p 8000:8080 ImageName:TagName`
 
 ### What to do now:
 Implement:
-* OAuth2
-* JWT
-* Okta
-* Doker
-* ecc...
+* Implement Authentication using OAuth2 framework to enable social logins - Facebook, Twitter, Gmail etc.,
+* Implement security policies for APIs of your application
+* Deploy Spring Boot services using Docker containers
+* Use Apache/Spring Kafka to implement Microservices communications and Enable user activities
+* Use Spring Cache and Spring Boot to perform CRUD operations
+* Build Microservice applications using Spring Cloud and Netflix OSS 
 
