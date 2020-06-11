@@ -19,6 +19,11 @@ To build the container go in the Dockerfile directory and type
 
 to execute container in local type ```docker run -p 8000:8080 ImageName:TagName```
 
+### Cache Management
+```@EnableCaching``` Is used to enable Cache. This is used to save time during 
+employees searching. The cache is free only after employees deletion due to the
+changing of the table entries.
+
 ### What to do now:
 Implement:
 * Implement Authentication using OAuth2 framework to enable social logins - Facebook, Twitter, Gmail etc.,
