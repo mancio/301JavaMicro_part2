@@ -1,11 +1,11 @@
 package com.mancio.JavaMicro.controller;
 
 import com.mancio.JavaMicro.customExceptions.CustomNotFound;
-import com.mancio.JavaMicro.dao.EmployeeDAO;
 import com.mancio.JavaMicro.entities.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.mancio.JavaMicro.service.EmployeeService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -17,16 +17,16 @@ import java.util.Optional;
 public class MainController {
 
     @Autowired
-    private EmployeeDAO empdao;
+    private EmployeeService employeeService;
 
     @GetMapping("/employees")
     public List<Employees> getAllEmployees(){
-        return (List<Employees>) empdao.findAll();
+        return (List<Employees>) employeeService.findAll();
     }
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<Optional<Employees>> getEmployeeById(@PathVariable(value = "id") Long employeeId) {
-        Optional<Employees> empl = empdao.findById(employeeId);
+        Optional<Employees> empl = employeeService.findById(employeeId);
         if(!empl.isPresent()){
             throw new CustomNotFound(employeeId);
         }
@@ -40,13 +40,13 @@ public class MainController {
 
     @PostMapping("/employees")
     public Employees createEmployee(@Valid @RequestBody Employees employee) {
-        return empdao.save(employee);
+        return employeeService.save(employee);
     }
 
     @DeleteMapping("/employees/{id}")
     public Map< String, Boolean > deleteEmployee(@PathVariable(value = "id") Long employeeId) {
         try{
-            empdao.deleteById(employeeId);
+            employeeService.deleteById(employeeId);
         } catch (Exception e) {
             e.printStackTrace();
             throw new CustomNotFound(employeeId);

@@ -2,56 +2,78 @@ package com.mancio.JavaMicro;
 
 import com.mancio.JavaMicro.dao.EmployeeDAO;
 import com.mancio.JavaMicro.entities.Employees;
+import com.mancio.JavaMicro.service.EmployeeServiceImpl;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
+@EnableCaching
 public class CacheTests {
-
-    
 
     @Autowired
     CacheManager cacheManager;
-    @Autowired
-    EmployeeDAO repomock;
 
-    EmployeeDAO mock = Mockito.mock(EmployeeDAO.class);
+    @Mock
+    EmployeeDAO employeeDAO;
+
+    @InjectMocks
+    EmployeeServiceImpl employeeServiceImpl;
+
+    Employees emp;
+
+    @Before
+    public void setUp(){
+
+
+
+        emp = new Employees();
+        emp.setEmployee_id(0L);
+        emp.setEmployee_name("foo");
+        emp.setEmployee_last_name("cool");
+        emp.setEmployee_address("ibhblo");
+        emp.setEmployee_phone("+49786876");
+        emp.setSalary(1500);
+        emp.setCurrency("EUR");
+        emp.setJob_position("expert");
+        when(employeeServiceImpl.findById(anyLong())).thenReturn(java.util.Optional.ofNullable(emp));
+    }
+
 
     @Test
-    public void testCacheAll() {
-
-        // it say "cached" if it is already in the cache
-        //doAnswer(invocation -> "cached").when(repo).findAll();
-
-        // we invoke findAll twice.
-        Object allEmp1 = mock.findAll();
-        assertNotNull(allEmp1);
-        Object allEmp2 = repomock.findAll();
-        assertNotNull(allEmp2);
-
-        // verify the mock repo is called only ones
-        //verify(repomock, times(2)).findAll();
+    public void testCacheIsPresent() {
         assertNotNull(cacheManager.getCache("employees"));
-
-
     }
 
     @Test
-    public void testCacheById(){
-        //TestRepo testRepo = Mockito.mock(TestRepo.class);
+    public void testCacheIsWorking(){
 
-        Optional<Employees> Emp1 = repomock.findById((long)0);
-        assertNotNull(Emp1);
+
+        /* if cache is working properly after 2 query
+           I should have only one database hit
+         */
+        Optional<Employees> employees_first_hit = employeeServiceImpl.findById(0L);
+        assertEquals(employees_first_hit.get().getEmployee_name(),"foo");
         assertNotNull(cacheManager.getCache("employees"));
+        Optional<Employees> employees_second_hit = employeeServiceImpl.findById(0L);
+        assertEquals(employees_second_hit.get().getEmployee_name(),"foo");
+        Mockito.verify(employeeDAO, times(1)).findById(anyLong());
     }
 }
