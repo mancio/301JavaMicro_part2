@@ -19,6 +19,7 @@ import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
@@ -54,6 +55,7 @@ public class CacheTests {
         emp.setCurrency("EUR");
         emp.setJob_position("expert");
         when(employeeServiceImpl.findById(anyLong())).thenReturn(java.util.Optional.ofNullable(emp));
+        when(employeeServiceImpl.save(any(Employees.class))).thenReturn(emp);
     }
 
 
@@ -75,5 +77,12 @@ public class CacheTests {
         Optional<Employees> employees_second_hit = employeeServiceImpl.findById(0L);
         assertEquals(employees_second_hit.get().getEmployee_name(),"foo");
         Mockito.verify(employeeDAO, times(1)).findById(anyLong());
+    }
+
+    @Test
+    public void testSaveEmployee(){
+        Employees employee = employeeServiceImpl.save(emp);
+        assertNotNull(cacheManager.getCache("employees"));
+
     }
 }
