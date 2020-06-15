@@ -7,6 +7,11 @@ import javax.persistence.*;
 public class Employees {
 
     @Id
+    /* do not use GenerationType.AUTO or there will be problems
+       during testing when a new employee will be saved without the
+       id. Identity tag implement a special auto increment id column
+       to identify rows, but is not supported by all databases.
+     */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "EMPLOYEE_ID", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long employee_id;

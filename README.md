@@ -14,10 +14,13 @@ Just execute ```java -jar {filename}```
 The Dockerfile in the main directory can be executed to build a container
 that run the microservice.
 
+To see all the containers installed locally type
+```docker ps -a```
+
 To build the container go in the Dockerfile directory and type 
 ```docker build -t ImageName:TagName dockerfile_dir```
 
-to execute container in local type ```docker run -p 8000:8080 ImageName:TagName```
+to execute a container in local type ```docker run -p 8080:8080 ImageName:TagName```
 
 ### Cache Management
 ```@EnableCaching``` Is used to enable Cache. This is used to save time during 
