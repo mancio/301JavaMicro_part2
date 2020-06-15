@@ -29,8 +29,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    @CacheEvict(value = "employees", allEntries = true)
-    @CachePut(value = "employees", key = "#emp")
+
+    @CachePut(value = "employees", key = "#emp.employee_id")
     public Employees save(Employees emp) {
         return employeeDAO.save(emp);
     }

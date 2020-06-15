@@ -59,7 +59,7 @@ public class RestTest {
 		employee.setEmployee_name("Rob");
 		employee.setEmployee_last_name("Maverick");
 		employee.setEmployee_phone("+47764784885");
-		employee.getEmployee_address(".ul dolny 5 30-768 Cracow Poland");
+		employee.setEmployee_address(".ul dolny 5 30-768 Cracow Poland");
 		employee.setJob_position("java dev");
 		employee.setCurrency("EUR");
 		employee.setSalary(3000);
