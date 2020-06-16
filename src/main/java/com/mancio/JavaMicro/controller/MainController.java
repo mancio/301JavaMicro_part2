@@ -19,6 +19,10 @@ public class MainController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping("/")
+    public String welcome(){
+        return "Welcome to the 301 Java Microservice!";
+    }
     @GetMapping("/employees")
     public List<Employees> getAllEmployees(){
         return (List<Employees>) employeeService.findAll();
