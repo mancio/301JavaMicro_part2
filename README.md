@@ -18,8 +18,10 @@ To see all the containers installed locally type
 
 To build the container go in the Dockerfile directory and type 
 ```docker build -t ImageName:TagName dockerfile_dir```
+example ```docker build -t 301micro:0.1 .```
 
 to execute a container in local type ```docker run -p 8080:8080 ImageName:TagName```
+example ```docker run -p 8080:8080 301micro:0.1```
 
 ### Cache Management
 ```@EnableCaching``` Is used to enable Cache. This is used to save time during 
