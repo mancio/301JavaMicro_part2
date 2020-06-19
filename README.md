@@ -33,3 +33,6 @@ This Microservice is part of an Architecture consisting in 3 Microservices:
  it authenticate to the core microservice [301javamicro](https://github.com/mancio/301JavaMicro_part2)
  * [MyEurekaService](https://github.com/mancio/MyEurekaService) is the service discovery able to track the status of both the services.
 
+### Links
+* [How to build microservices](https://developer.okta.com/blog/2017/06/15/build-microservices-architecture-spring-boot)
+* [How to implement social auth with okta](https://developer.okta.com/blog/2018/02/13/secure-spring-microservices-with-oauth)
