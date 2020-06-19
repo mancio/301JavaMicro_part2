@@ -5,9 +5,8 @@
 check [part one](https://github.com/mancio/301JavaMicro) 
 
 ### Jar executable file
-[Here](https://github.com/mancio/301JavaMicro_part2/tree/master/build) you
-can fine the executable jar version of the microservice. This jar include all
-the springboot classes and tomcat. It is ready to use.
+You can build a full working .jar by using the ```packege``` comand of maven.
+This jar include all the springboot classes and tomcat. It is ready to use.
 Just execute ```java -jar {filename}```
 
 ### Docker
@@ -27,12 +26,10 @@ to execute a container in local type ```docker run -p 8080:8080 ImageName:TagNam
 employees searching. The cache is free only after employees deletion due to the
 changing of the table entries.
 
-### What to do now:
-Implement:
-* Implement Authentication using OAuth2 framework to enable social logins - Facebook, Twitter, Gmail etc.,
-* Implement security policies for APIs of your application
-* Deploy Spring Boot services using Docker containers
-* Use Apache/Spring Kafka to implement Microservices communications and Enable user activities
-* Use Spring Cache and Spring Boot to perform CRUD operations
-* Build Microservice applications using Spring Cloud and Netflix OSS 
+### Connected projects
+This Microservice is part of an Architecture consisting in 3 Microservices:
+ * [The edge](https://github.com/mancio/edge-service) is the entry point of the system. The user send the request to the edge.
+ * The edge ask to the user to authenticate by using okta. After verify the identity,
+ it authenticate to the core microservice [301javamicro](https://github.com/mancio/301JavaMicro_part2)
+ * [MyEurekaService](https://github.com/mancio/MyEurekaService) is the service discovery able to track the status of both the services.
 
