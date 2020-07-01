@@ -29,3 +29,8 @@ security:
     resource:
       user-info-uri: https://dev-912784.okta.com/oauth2/default/v1/userinfo
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans,mappings
