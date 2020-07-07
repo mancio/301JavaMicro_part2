@@ -1,4 +1,4 @@
-package com.mancio.JavaMicro.auth;
+/*package com.mancio.JavaMicro.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,4 +16,4 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .requestMatcher(new RequestHeaderRequestMatcher("Authorization"))
                 .authorizeRequests().anyRequest().fullyAuthenticated();
     }
-}
+}*/

@@ -18,7 +18,17 @@ spring:
     show-sql: true
 
 
-
+security:
+  oauth2:
+    client:
+      clientId: Iv1.31d3980af5014e2a
+      clientSecret: 85c41b20778f181a84a6729cec8dcded74db7766
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+    resource:
+      user-info-uri: https://api.github.com/user
+      prefer-token-info: false
 
 #security:
 #  oauth2:
