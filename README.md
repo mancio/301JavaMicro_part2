@@ -13,7 +13,10 @@ Just execute ```java -jar {filename}```
 The Dockerfile in the main directory can be executed to build a container
 that run the microservice.
 
-To see all the containers installed locally type
+To see all the images type
+```docker images```
+
+To see all the running containers type
 ```docker ps -a```
 
 To build the container go in the Dockerfile directory and type 
