@@ -1,5 +1,7 @@
 package com.mancio.JavaMicro.entities;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,24 +18,31 @@ public class Employees {
     @Column(name = "EMPLOYEE_ID", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long employee_id;
 
+    @ApiModelProperty(example = "Bill")
     @Column(name = "EMPLOYEE_NAME", columnDefinition = "VARCHAR(120)")
     private String employee_name;
 
+    @ApiModelProperty(example = "Spencer")
     @Column(name = "EMPLOYEE_LAST_NAME", columnDefinition = "VARCHAR(120)")
     private String employee_last_name;
 
+    @ApiModelProperty(example = "st. avenue 7 77-000 Chicago USA")
     @Column(name = "EMPLOYEE_ADDRESS", columnDefinition = "VARCHAR(120)")
     private String employee_address;
 
+    @ApiModelProperty(example = "+48788798908")
     @Column(name = "EMPLOYEE_PHONE", columnDefinition = "VARCHAR(120)")
     private String employee_phone;
 
+    @ApiModelProperty(example = "java dev")
     @Column(name = "JOB_POSITION", columnDefinition = "VARCHAR(120)")
     private String job_position;
 
+    @ApiModelProperty(example = "2500")
     @Column(name = "SALARY", columnDefinition = "INT(20)")
     private int salary;
 
+    @ApiModelProperty(example = "EUR")
     @Column(name = "CURRENCY", columnDefinition = "VARCHAR(5)")
     private String currency;
 
