@@ -46,6 +46,10 @@ public class Employees {
     @Column(name = "CURRENCY", columnDefinition = "VARCHAR(5)")
     private String currency;
 
+    @ApiModelProperty(example = "4")
+    @Column(name = "RATING", columnDefinition = "INT(2)")
+    private int rating;
+
     public long getEmployee_id() {
         return employee_id;
     }
@@ -108,5 +112,13 @@ public class Employees {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
