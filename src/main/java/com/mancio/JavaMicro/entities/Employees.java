@@ -15,6 +15,9 @@ public class Employees {
        to identify rows, but is not supported by all databases.
      */
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //@SequenceGenerator(name="seq",sequenceName="oracle_seq")
+    //@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     @Column(name = "EMPLOYEE_ID", nullable = false, updatable = false, columnDefinition = "BIGINT(20)")
     private long employee_id;
 
@@ -120,5 +123,14 @@ public class Employees {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("employee_id = " + employee_id);
+        str.append(System.getProperty("line.separator"));
+        str.append("rating = " + rating);
+        return str.toString();
     }
 }
