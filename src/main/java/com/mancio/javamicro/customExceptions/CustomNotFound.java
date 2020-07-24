@@ -1,4 +1,4 @@
-package com.mancio.JavaMicro.customExceptions;
+package com.mancio.javamicro.customExceptions;
 
 
 import org.springframework.http.HttpStatus;

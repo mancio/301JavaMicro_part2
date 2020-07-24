@@ -1,6 +1,6 @@
-package com.mancio.JavaMicro.service;
+package com.mancio.javamicro.service;
 
-import com.mancio.JavaMicro.entities.Employees;
+import com.mancio.javamicro.entities.Employees;
 
 import java.util.Optional;
 

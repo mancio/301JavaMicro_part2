@@ -1,4 +1,4 @@
-package com.mancio.JavaMicro.entities;
+package com.mancio.javamicro.entities;
 
 public class EmployeesRating {
 

@@ -1,9 +1,9 @@
-package com.mancio.JavaMicro.kafka;
+package com.mancio.javamicro.kafka;
 
 import com.google.gson.Gson;
-import com.mancio.JavaMicro.entities.Employees;
-import com.mancio.JavaMicro.entities.EmployeesRating;
-import com.mancio.JavaMicro.service.EmployeeService;
+import com.mancio.javamicro.entities.Employees;
+import com.mancio.javamicro.entities.EmployeesRating;
+import com.mancio.javamicro.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;

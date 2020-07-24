@@ -1,4 +1,4 @@
-package com.mancio.JavaMicro.swagger;
+package com.mancio.javamicro.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

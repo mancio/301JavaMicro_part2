@@ -1,7 +1,7 @@
-package com.mancio.JavaMicro.service;
+package com.mancio.javamicro.service;
 
-import com.mancio.JavaMicro.dao.EmployeeDAO;
-import com.mancio.JavaMicro.entities.Employees;
+import com.mancio.javamicro.dao.EmployeeDAO;
+import com.mancio.javamicro.entities.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

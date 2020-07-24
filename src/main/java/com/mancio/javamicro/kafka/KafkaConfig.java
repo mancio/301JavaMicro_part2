@@ -1,6 +1,6 @@
-package com.mancio.JavaMicro.kafka;
+package com.mancio.javamicro.kafka;
 
-import com.mancio.JavaMicro.entities.EmployeesRating;
+import com.mancio.javamicro.entities.EmployeesRating;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

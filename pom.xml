@@ -156,8 +156,8 @@
 						<configuration>
 							<classifier>spring-boot</classifier>
 							<mainClass>
-								com.mancio.JavaMicro.Application
-							</mainClass>
+                                com.mancio.javamicro.Application
+                            </mainClass>
 							<outputDirectory>${project.basedir}/build</outputDirectory>
 						</configuration>
 					</execution>

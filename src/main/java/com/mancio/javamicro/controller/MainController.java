@@ -1,8 +1,8 @@
-package com.mancio.JavaMicro.controller;
+package com.mancio.javamicro.controller;
 
-import com.mancio.JavaMicro.customExceptions.CustomNotFound;
-import com.mancio.JavaMicro.entities.Employees;
-import com.mancio.JavaMicro.service.EmployeeService;
+import com.mancio.javamicro.customExceptions.CustomNotFound;
+import com.mancio.javamicro.entities.Employees;
+import com.mancio.javamicro.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,8 +1,8 @@
-package com.mancio.JavaMicro;
+package com.mancio.javamicro;
 
-import com.mancio.JavaMicro.dao.EmployeeDAO;
-import com.mancio.JavaMicro.entities.Employees;
-import com.mancio.JavaMicro.service.EmployeeServiceImpl;
+import com.mancio.javamicro.dao.EmployeeDAO;
+import com.mancio.javamicro.entities.Employees;
+import com.mancio.javamicro.service.EmployeeServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

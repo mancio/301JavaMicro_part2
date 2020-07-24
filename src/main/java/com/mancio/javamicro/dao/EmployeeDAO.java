@@ -1,6 +1,6 @@
-package com.mancio.JavaMicro.dao;
+package com.mancio.javamicro.dao;
 
-import com.mancio.JavaMicro.entities.Employees;
+import com.mancio.javamicro.entities.Employees;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
